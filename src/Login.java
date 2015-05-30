@@ -1,6 +1,6 @@
 
 import java.awt.Color;
-import java.sql.Statement;
+//import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,6 +30,7 @@ public String theusername = null;
     }
     
     
+    
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,21 +50,8 @@ public String theusername = null;
         jLabel3 = new javax.swing.JLabel();
         LoginStatus = new javax.swing.JLabel();
         REGISTER_PANEL = new javax.swing.JPanel();
-        R_FieldsPanel = new javax.swing.JPanel();
-        NameLBL = new javax.swing.JLabel();
-        SurnameLBL = new javax.swing.JLabel();
-        emailLBL = new javax.swing.JLabel();
-        R_usernameTXT = new javax.swing.JTextField();
-        R_NameTXT = new javax.swing.JTextField();
-        R_SurnameTXT = new javax.swing.JTextField();
-        R_EmailTXT = new javax.swing.JTextField();
-        R_PasswordTXT = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
-        registerBTN = new javax.swing.JButton();
-        passLBL = new javax.swing.JLabel();
         RegisterIcon = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -180,124 +168,44 @@ public String theusername = null;
 
         jTabbedPane1.addTab("Login", LOGIN_PANEL);
 
-        NameLBL.setText("Name");
-
-        SurnameLBL.setText("Surname");
-
-        emailLBL.setText("Email");
-
-        jLabel4.setText("Username");
-
-        registerBTN.setText("Register");
-        registerBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBTNActionPerformed(evt);
+        RegisterIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/Icons/signup.png"))); // NOI18N
+        RegisterIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegisterIconMouseClicked(evt);
             }
         });
 
-        passLBL.setText("Password");
-
-        javax.swing.GroupLayout R_FieldsPanelLayout = new javax.swing.GroupLayout(R_FieldsPanel);
-        R_FieldsPanel.setLayout(R_FieldsPanelLayout);
-        R_FieldsPanelLayout.setHorizontalGroup(
-            R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(R_FieldsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(R_FieldsPanelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(registerBTN))
-                    .addGroup(R_FieldsPanelLayout.createSequentialGroup()
-                        .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(NameLBL)
-                            .addComponent(passLBL)
-                            .addComponent(jLabel4)
-                            .addComponent(SurnameLBL)
-                            .addComponent(emailLBL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(R_SurnameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                            .addComponent(R_usernameTXT)
-                            .addComponent(R_NameTXT)
-                            .addComponent(R_PasswordTXT)
-                            .addComponent(R_EmailTXT))))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        R_FieldsPanelLayout.setVerticalGroup(
-            R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(R_FieldsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(R_usernameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passLBL)
-                    .addComponent(R_PasswordTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameLBL)
-                    .addComponent(R_NameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SurnameLBL)
-                    .addComponent(R_SurnameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(R_FieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailLBL)
-                    .addComponent(R_EmailTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(registerBTN)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        RegisterIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/Icons/signup.png"))); // NOI18N
-
         jLabel5.setFont(new java.awt.Font("SansSerif", 3, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Παρακαλούμε εισάγετε τα στοιχεία σας  ");
+        jLabel5.setText("Κάνε κλίκ στην εικόνα για να εμφανίσεις την φόρμα εγγραφής");
         jLabel5.setAutoscrolls(true);
         jLabel5.setMaximumSize(new java.awt.Dimension(49, 16));
         jLabel5.setMinimumSize(new java.awt.Dimension(9, 16));
         jLabel5.setName(""); // NOI18N
         jLabel5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 3, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("για να ολοκληρώσετε την εγγραφή !");
-        jLabel6.setAutoscrolls(true);
-        jLabel6.setMaximumSize(new java.awt.Dimension(49, 16));
-        jLabel6.setMinimumSize(new java.awt.Dimension(9, 16));
-        jLabel6.setName(""); // NOI18N
-        jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
         javax.swing.GroupLayout REGISTER_PANELLayout = new javax.swing.GroupLayout(REGISTER_PANEL);
         REGISTER_PANEL.setLayout(REGISTER_PANELLayout);
         REGISTER_PANELLayout.setHorizontalGroup(
             REGISTER_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(REGISTER_PANELLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(R_FieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(REGISTER_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RegisterIcon)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(REGISTER_PANELLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(REGISTER_PANELLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(RegisterIcon)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         REGISTER_PANELLayout.setVerticalGroup(
             REGISTER_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(REGISTER_PANELLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(REGISTER_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(REGISTER_PANELLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(RegisterIcon))
-                    .addComponent(R_FieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(RegisterIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Register", REGISTER_PANEL);
@@ -431,67 +339,10 @@ public String theusername = null;
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void registerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBTNActionPerformed
-       
-        //metavlhtes gia to register
-        String username = R_usernameTXT.getText();
-        String password = R_PasswordTXT.getText();
-        String name = R_NameTXT.getText();
-        String surname = R_SurnameTXT.getText();
-        String email = R_EmailTXT.getText();
-        
-         
-        try
-        {
-          // create a mysql database connection
-        
-          Connection conn = ConnectDB();
-          
-          // create a sql date object so we can use it in our INSERT statement
-          Calendar calendar = Calendar.getInstance();
-          java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-
-          // the mysql insert statement
-          String query = " insert into useraccounts (username, password, name, surname, email)"
-            + " values (?, ?, ?, ?, ?)";
-
-        
-            if (!username.equals("") && !password.equals("") && !name.equals("") && !surname.equals("") && !email.equals("")) {
-                // create the mysql insert preparedstatement
-                PreparedStatement register = conn.prepareStatement(query);
-                register.setString(1, username);
-                register.setString(2, password);
-                register.setString(3, name);
-                register.setString(4, surname);
-                register.setString(5, email);
-
-                // execute the preparedstatement
-                register.execute();
-                conn.close(); //close connection
-                JOptionPane.showMessageDialog(rootPane, "You have succesfully registered! \n"
-                        + "You can now login with your details!");
-                
-                R_usernameTXT.setText("");
-                R_PasswordTXT.setText("");
-                R_NameTXT.setText("");
-                R_SurnameTXT.setText("");
-                R_EmailTXT.setText("");
-                
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"All fields are required! \n Please fill all the informations!");
-            }
-          
-        }
-        catch (Exception e)
-        {
-          JOptionPane.showMessageDialog(rootPane, "Could not register, please contact Admin for more details!");
-          System.err.println(e.getMessage());
-        }
-        
-        
-    }//GEN-LAST:event_registerBTNActionPerformed
+    private void RegisterIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterIconMouseClicked
+        Register reg = new Register();
+        reg.setVisible(true);
+    }//GEN-LAST:event_RegisterIconMouseClicked
 
     /**
      * @param args the command line arguments
@@ -537,31 +388,18 @@ public String theusername = null;
     private javax.swing.JButton LoginBTN;
     private javax.swing.JLabel LoginIcon;
     private javax.swing.JLabel LoginStatus;
-    private javax.swing.JLabel NameLBL;
     private javax.swing.JPanel REGISTER_PANEL;
-    private javax.swing.JTextField R_EmailTXT;
-    private javax.swing.JPanel R_FieldsPanel;
-    private javax.swing.JTextField R_NameTXT;
-    private javax.swing.JPasswordField R_PasswordTXT;
-    private javax.swing.JTextField R_SurnameTXT;
-    private javax.swing.JTextField R_usernameTXT;
     private javax.swing.JLabel RegisterIcon;
     private javax.swing.JLabel Status;
-    private javax.swing.JLabel SurnameLBL;
-    private javax.swing.JLabel emailLBL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel passLBL;
     private javax.swing.JPasswordField passwordTXT;
-    private javax.swing.JButton registerBTN;
     private javax.swing.JTextField usernameTXT;
     // End of variables declaration//GEN-END:variables
 }

@@ -301,8 +301,8 @@ public class MainApp extends javax.swing.JFrame {
             Connection Conn = ConnectDB();  //sundesh me thn bash dedomenon
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
-            String insertTransactionHistory = " insert into t_history(byuser,TransactionType, Amount, Date, NewTotal)"
-                    + " values (2,?, ?, ?, ?)";
+            String insertTransactionHistory = " insert into t_history(user_id,TransactionType, Amount,NewTotal,Date)"
+                    + " values (1,?, ?, ?, ?)";
             
             double CurrentMoney = Double.parseDouble(CurrentMoneyLBL.getText());
             double poso = Double.parseDouble(DepositAmount.getText());
@@ -317,26 +317,33 @@ public class MainApp extends javax.swing.JFrame {
             if(options.getSelectedIndex()==1)
             {
                 //if have money
-                if (CurrentMoney > 0) {
+                if (CurrentMoney > 0) 
+                {
+                    //and if the withdraw amount is < than currentmoney
+                    if(poso <=CurrentMoney)
+                    {
+                        //Logariasmos log = new Logariasmos(CurrentMoney);
+                        log.withdraw(poso);
+                        String neoipolipo = String.valueOf(log.getYpoloipo());
+                        CurrentMoneyLBL.setText(neoipolipo);    //set the new money
+                        
+                        // create the mysql insert preparedstatement
+                        PreparedStatement withdraw = Conn.prepareStatement(insertTransactionHistory);
+                        withdraw.setString(1, "Withdraw");
+                        withdraw.setDouble(2, poso);
+                        withdraw.setString(3, neoipolipo);
+                        withdraw.setDate(4, startDate);
 
-                    //Logariasmos log = new Logariasmos(CurrentMoney);
-                    log.withdraw(poso);
-                    String neoipolipo = String.valueOf(log.getYpoloipo());
+                        // execute the preparedstatement
+                        withdraw.execute();
 
-                    CurrentMoneyLBL.setText(neoipolipo);    //set the new money
-
-                    // create the mysql insert preparedstatement
-                    PreparedStatement withdraw = Conn.prepareStatement(insertTransactionHistory);
-                    withdraw.setString(1, "Withdraw");
-                    withdraw.setDouble(2, poso);
-                    withdraw.setDate(3, startDate);
-                    withdraw.setString(4, neoipolipo);
-
-                    // execute the preparedstatement
-                    withdraw.execute();
-
-                    historyLog.addRow(new Object[]{"Withdraw", poso, log.getYpoloipo()}); //add to historyLog
-
+                        historyLog.addRow(new Object[]{"Withdraw", poso, log.getYpoloipo()}); //add to historyLog
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"You are trying to withdraw "+poso+""
+                                + "\n but your money are " + CurrentMoney + "" );
+                    }
                 }
                 
                 else if(CurrentMoney <=0 || CurrentMoney < (-2000))
@@ -357,8 +364,7 @@ public class MainApp extends javax.swing.JFrame {
                     
                     
                     
-                    LoanMoney getAloan = new LoanMoney();
-                    getAloan.setVisible(true);
+                    
                     
                 }
             }
