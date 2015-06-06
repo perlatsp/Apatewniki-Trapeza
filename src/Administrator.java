@@ -16,12 +16,16 @@ public class Administrator extends javax.swing.JFrame {
     public Administrator() 
     {
         initComponents();
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     public Administrator(String Name)
     {
         initComponents();
         jLabel1.setText(Name);
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
     /**
      * This method is called from within the constructor to initialize the form.
