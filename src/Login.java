@@ -267,6 +267,7 @@ public String theusername = null;
                 LoginStatus.setForeground(Color.green);
                 LoginStatus.setText("Login Succesfull!");
                 
+                this.dispose();
                
             }
             else

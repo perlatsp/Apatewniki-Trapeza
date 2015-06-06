@@ -450,7 +450,7 @@ public class MainApp extends javax.swing.JFrame {
             Connection conn = ConnectDB();
                        
             //getHistory
-            String getHistory = "select * from t_history where user_id =1";
+            String getHistory = "select * from t_history ";
             
             PreparedStatement ghstry = conn.prepareStatement(getHistory);
             ResultSet rhstry = ghstry.executeQuery();
