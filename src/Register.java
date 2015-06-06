@@ -360,7 +360,7 @@ public class Register extends javax.swing.JFrame {
 
             }
             //get surname
-            String asd = "select surname from useraccounts where user_id = 1";
+            String asd = "select surname from useraccounts where username = 'perlat'";
             PreparedStatement de=conn.prepareStatement(asd);
             ResultSet raes = (ResultSet) de.executeQuery();
             if(raes.next())
@@ -374,7 +374,7 @@ public class Register extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+ 
     private void registerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBTNActionPerformed
 
         //metavlhtes gia to register
